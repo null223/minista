@@ -1,6 +1,7 @@
 const path = require("path")
 const glob = require("glob")
 const chokidar = require("chokidar")
+const webpack = require("webpack")
 
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const HtmlReplaceWebpackPlugin = require("html-replace-webpack-plugin")
@@ -127,6 +128,9 @@ const webpackConfig = {
         replacement: "<!-- $1 -->",
       },
     ]),
+    new webpack.ProvidePlugin({
+      React: 'react'
+    }),
     new MiniCssExtractPlugin({
       filename: "assets/styles.css",
     }),
