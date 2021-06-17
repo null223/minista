@@ -2,7 +2,7 @@ import React from "react"
 import { renderToStaticMarkup } from "react-dom/server"
 import { Helmet } from "react-helmet"
 
-const render = (element) => {
+const render = (element, styleTags) => {
   const markup = renderToStaticMarkup(element)
   const helmet = Helmet.renderStatic()
   const staticHelmet = (data) => {
@@ -19,6 +19,7 @@ const render = (element) => {
         ${staticHelmet(helmet.link.toString())}
         ${staticHelmet(helmet.style.toString())}
         ${staticHelmet(helmet.script.toString())}
+        ${styleTags}
       </head>
       <body ${helmet.bodyAttributes.toString()}>
         ${markup}

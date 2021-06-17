@@ -1,7 +1,7 @@
-
+import { ThemeProvider } from "styled-components"
 
 const AppLayout = ({ children }) => {
-  return <main>{children}</main>
+  return <ThemeProvider><main>{children}</main></ThemeProvider>
 }
 
 export default AppLayout
